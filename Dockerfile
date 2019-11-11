@@ -19,4 +19,5 @@ RUN composer global require hirak/prestissimo
 RUN a2enmod rewrite \
  && a2enmod remoteip \
  && a2dissite 000-default \
+ && a2ensite slim \
  && echo ServerName localhost >> /etc/apache2/apache2.conf
