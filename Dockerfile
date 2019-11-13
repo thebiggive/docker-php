@@ -8,6 +8,8 @@ RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install bcmath pdo_mysql zip
 RUN docker-php-ext-enable opcache
 
+RUN pecl install redis && docker-php-ext-enable redis
+
 COPY apache/slim.conf /etc/apache2/sites-available/
 COPY php/php.ini /usr/local/etc/php/
 
