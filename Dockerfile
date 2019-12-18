@@ -1,10 +1,9 @@
-FROM php:7.3-apache
+FROM php:7.4-apache
 
 RUN apt-get update -qq  \
- && apt-get install -y git-core libzip-dev \
+ && apt-get install -y git-core libzip-dev zip \
  && rm -rf /var/lib/apt/lists/* /var/cache/apk/*
 
-RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install bcmath pdo_mysql zip
 RUN docker-php-ext-enable opcache
 
