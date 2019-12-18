@@ -3,7 +3,7 @@
 A base PHP + Apache Docker image to support the Big Give's PHP + Slim apps - currently just
 [MatchBot](https://github.com/thebiggive/matchbot).
 
-Currently using PHP 7.3.
+Currently using PHP 7.4.
 
 ## Manually build
 
