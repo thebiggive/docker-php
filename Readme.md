@@ -9,7 +9,7 @@ Currently using PHP 7.4.
 
 For local testing:
 
-  docker build -t thebiggive/php .
+    docker build -t thebiggive/php .
 
 ## Publish
 
