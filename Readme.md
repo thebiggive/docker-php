@@ -1,7 +1,9 @@
 # docker-php
 
-A base PHP + Apache Docker image to support the Big Give's PHP + Slim apps - currently just
-[MatchBot](https://github.com/thebiggive/matchbot).
+A base PHP + Apache Docker image to support the Big Give's PHP + Slim apps:
+ 
+ * [Mailer](https://github.com/thebiggive/mailer)
+ * [MatchBot](https://github.com/thebiggive/matchbot)
 
 Currently using PHP 7.4.
 
