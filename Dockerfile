@@ -1,10 +1,10 @@
 FROM php:7.4-apache
 
 RUN apt-get update -qq  \
- && apt-get install -y git-core libzip-dev zip \
+ && apt-get install -y git-core libicu-dev libzip-dev zip \
  && rm -rf /var/lib/apt/lists/* /var/cache/apk/*
 
-RUN docker-php-ext-install bcmath pdo_mysql zip
+RUN docker-php-ext-install bcmath intl pdo_mysql zip
 RUN docker-php-ext-enable opcache
 
 RUN pecl install redis && rm -rf /tmp/pear && docker-php-ext-enable redis
