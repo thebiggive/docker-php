@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.0-apache
 
 RUN apt-get update -qq  \
  && apt-get install -y git-core libicu-dev libzip-dev zip \
@@ -14,8 +14,6 @@ COPY php/php.ini /usr/local/etc/php/
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-# Composer parallel installs
-RUN composer global require hirak/prestissimo
 
 RUN a2enmod rewrite \
  && a2enmod remoteip \
