@@ -15,5 +15,5 @@ For local testing:
 
 ## Publish
 
-* Push to master
+* Push to main
 * Wait for a successful build [on Docker Hub](https://hub.docker.com/r/thebiggive/php/builds/)
