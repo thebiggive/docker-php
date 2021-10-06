@@ -1,6 +1,4 @@
-FROM php:8.0-apache
-
-WORKDIR /var/www/html
+FROM php:8.0-apache-buster
 
 RUN apt-get update -qq  \
  && apt-get install -y git-core libicu-dev libzip-dev zip \
