@@ -1,5 +1,7 @@
 FROM php:8.0-apache
 
+WORKDIR /var/www/html
+
 RUN apt-get update -qq  \
  && apt-get install -y git-core libicu-dev libzip-dev zip \
  && rm -rf /var/lib/apt/lists/* /var/cache/apk/*

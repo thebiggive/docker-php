@@ -16,4 +16,4 @@ For local testing:
 ## Publish
 
 * Push to main
-* Wait for a successful build [on Docker Hub](https://hub.docker.com/r/thebiggive/php/builds/)
+* Wait for a successful daily [CircleCI build](.circleci/config.yml) build and push [to Docker Hub](https://hub.docker.com/r/thebiggive/php/builds/)
