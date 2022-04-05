@@ -8,6 +8,7 @@ workflows:
   build:
     jobs:
       - docker/publish:
+          name: "Publish 'latest'"
           context:
             - docker-hub-creds
           docker-password: DOCKER_HUB_ACCESS_TOKEN
@@ -15,6 +16,7 @@ workflows:
           image: thebiggive/php
           tag: 'latest'
       - docker/publish:
+          name: "Publish '8.1'"
           context:
             - docker-hub-creds
           docker-password: DOCKER_HUB_ACCESS_TOKEN
@@ -22,6 +24,7 @@ workflows:
           image: thebiggive/php
           tag: '8.1'
       - docker/publish:
+          name: "Publish '8.0'"
           context:
             - docker-hub-creds
           docker-password: DOCKER_HUB_ACCESS_TOKEN
@@ -30,6 +33,7 @@ workflows:
           image: thebiggive/php
           tag: '8.0'
       - docker/publish:
+          name: "Publish 'dev-8.1'"
           context:
             - docker-hub-creds
           docker-password: DOCKER_HUB_ACCESS_TOKEN
@@ -37,10 +41,10 @@ workflows:
           path: ./dev
           image: thebiggive/php
           tag: 'dev-8.1'
-#    triggers:
-#      - schedule:
-#          cron: "5 5 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - main
+    triggers:
+      - schedule:
+          cron: "5 5 * * *"
+          filters:
+            branches:
+              only:
+                - main
