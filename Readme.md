@@ -2,6 +2,7 @@
 
 A base PHP + Apache Docker image to support the Big Give's PHP + Slim apps:
  
+ * [ClaimBot](https://github.com/thebiggive/claimbot)
  * [Mailer](https://github.com/thebiggive/mailer)
  * [MatchBot](https://github.com/thebiggive/matchbot)
 
