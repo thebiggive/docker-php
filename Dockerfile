@@ -1,7 +1,4 @@
-# Default Debian / Bullseye had perms issues as of 6/11/21.
-# See https://stackoverflow.com/a/68900228/2803757 and
-# https://github.com/thebiggive/docker-php/commit/5a0357c5939ffcbce1158ea33febc2f9c903e31e commit message.
-FROM php:8.1-apache-buster
+FROM php:8.1-apache
 
 RUN apt-get update -qq  \
  && apt-get install -y git-core libicu-dev libzip-dev zip \
