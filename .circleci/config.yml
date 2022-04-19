@@ -14,6 +14,14 @@ workflows:
           docker-username: DOCKER_HUB_USERNAME
           image: thebiggive/php
           tag: '8.1'
+      - docker/publish:
+          context:
+            - docker-hub-creds
+          docker-password: DOCKER_HUB_ACCESS_TOKEN
+          docker-username: DOCKER_HUB_USERNAME
+          path: ./dev
+          image: thebiggive/php
+          tag: 'dev-8.1'
     triggers:
       - schedule:
           cron: "5 5 * * *"
