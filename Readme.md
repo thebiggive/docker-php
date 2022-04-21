@@ -12,7 +12,7 @@ Currently using PHP 8.1.
 
 For local testing:
 
-    docker build -t thebiggive/php .
+    docker build -t thebiggive/php:local .
 
 ###
 
