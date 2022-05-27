@@ -29,10 +29,10 @@ workflows:
           path: ./dev
           image: thebiggive/php
           tag: 'dev-8.1'
-#    triggers:
-#      - schedule:
-#          cron: "5 5 * * *"
-#          filters:
-#            branches:
-#              only:
-#                - main
+    triggers:
+      - schedule:
+          cron: "5 5 * * *"
+          filters:
+            branches:
+              only:
+                - main
