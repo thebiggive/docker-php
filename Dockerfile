@@ -26,3 +26,8 @@ RUN a2enmod rewrite \
  && a2dissite 000-default \
  && a2ensite slim \
  && echo ServerName localhost >> /etc/apache2/apache2.conf
+
+# Docker and multi-OS dev makes it hard to guarantee user matches for files inside app code, and
+# it should typically live only on trusted partitions, so we bypass this security feature for the
+# default app root. https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/
+RUN git config --global --add safe.directory /var/www/html
