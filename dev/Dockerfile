@@ -2,7 +2,7 @@ FROM thebiggive/php:8.1
 
 # CircleCI orb requires gpg for uploader validation
 RUN apt-get update -qq \
- && apt-get gpg \
+ && apt-get install -y gpg \
  && rm -rf /var/lib/apt/lists/* /var/cache/apk/*
 
 # As of April 2022 and PHP 8.1, phpdbg isn't bundled and Debian stable repos don't seem to have
