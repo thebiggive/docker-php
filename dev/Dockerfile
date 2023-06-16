@@ -1,7 +1,7 @@
 FROM thebiggive/php:8.1
 
 # CircleCI orb requires gpg for uploader validation
-RUN apt-get update -qq \
+RUN apt-get update \
  && apt-get install -y gpg \
  && rm -rf /var/lib/apt/lists/* /var/cache/apk/*
 
