@@ -1,6 +1,6 @@
 FROM php:8.1-apache
 
-RUN apt-get update \
+RUN apt-get update -V \
  && apt-get install -y git-core libicu-dev libzip-dev zip \
  && rm -rf /var/lib/apt/lists/* /var/cache/apk/*
 
