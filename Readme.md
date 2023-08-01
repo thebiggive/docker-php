@@ -1,8 +1,9 @@
 # docker-php
 
-A base PHP + Apache Docker image to support the Big Give's PHP + Slim apps:
+A base PHP + Apache Docker image to support the Big Give's PHP + Slim apps, including:
  
  * [ClaimBot](https://github.com/thebiggive/claimbot)
+ * [Identity](https://github.com/thebiggive/identity)
  * [Mailer](https://github.com/thebiggive/mailer)
  * [MatchBot](https://github.com/thebiggive/matchbot)
 
