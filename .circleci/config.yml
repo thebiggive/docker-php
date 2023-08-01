@@ -26,6 +26,14 @@ workflows:
             - docker-hub-creds
           docker-password: DOCKER_HUB_ACCESS_TOKEN
           docker-username: DOCKER_HUB_USERNAME
+          path: ./php8.0
+          image: thebiggive/php
+          tag: '8.0'
+      - docker/publish:
+          context:
+            - docker-hub-creds
+          docker-password: DOCKER_HUB_ACCESS_TOKEN
+          docker-username: DOCKER_HUB_USERNAME
           path: ./dev
           image: thebiggive/php
           tag: 'dev-8.1'
