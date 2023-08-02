@@ -12,7 +12,9 @@ RUN docker-php-ext-enable opcache
 
 RUN pecl install redis && rm -rf /tmp/pear && docker-php-ext-enable redis
 
-COPY apache/slim.conf /etc/apache2/sites-available/
+# TODO When upgrading to PHP 8.1+, we'll want to make the `mautic` site
+# available there too (alongside `slim`).
+COPY apache/mautic.conf /etc/apache2/sites-available/
 COPY php/php.ini /usr/local/etc/php/
 
 # Composer
@@ -27,7 +29,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --version=2.4.1 --instal
 RUN a2enmod rewrite \
  && a2enmod remoteip \
  && a2dissite 000-default \
- && a2ensite slim \
+ && a2ensite mautic \
  && echo ServerName localhost >> /etc/apache2/apache2.conf
 
 # Docker and multi-OS dev makes it hard to guarantee user matches for files inside app code, and
