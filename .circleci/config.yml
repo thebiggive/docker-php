@@ -24,23 +24,14 @@ workflows:
           image: thebiggive/php
           tag: '8.1'
       - docker/publish:
-          name: "Publish '8.2'"
+          name: "Publish '8.0'"
           context:
             - docker-hub-creds
           docker-password: DOCKER_HUB_ACCESS_TOKEN
           docker-username: DOCKER_HUB_USERNAME
-          path: ./php8.2
+          path: ./php8.0
           image: thebiggive/php
-          tag: '8.2'
-      - docker/publish:
-          name: "Publish '8.3'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
-          path: ./php8.3
-          image: thebiggive/php
-          tag: '8.3'
+          tag: '8.0'
       - docker/publish:
           name: "Publish 'dev-8.1'"
           context:
@@ -50,24 +41,6 @@ workflows:
           path: ./dev
           image: thebiggive/php
           tag: 'dev-8.1'
-      - docker/publish:
-          name: "Publish 'dev-8.2'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
-          path: ./php8.2-dev
-          image: thebiggive/php
-          tag: 'dev-8.2'
-      - docker/publish:
-          name: "Publish 'dev-8.3'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
-          path: ./php8.2-dev
-          image: thebiggive/php
-          tag: 'dev-8.3'
     triggers:
       - schedule:
           cron: "5 5 * * *"
