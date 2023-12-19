@@ -1,46 +1,48 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@2.2.0
+  docker: circleci/docker@2.4.0
 
 workflows:
   version: 2
   build:
     jobs:
       - docker/publish:
-          name: "Publish 'latest'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
+          context: [docker-hub-creds]
+          name: "Publish 'latest', currently 8.2"
+          path: ./php8.2
           image: thebiggive/php
           tag: 'latest'
       - docker/publish:
+          context: [docker-hub-creds]
           name: "Publish '8.1'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
+          path: ./php8.1
           image: thebiggive/php
           tag: '8.1'
       - docker/publish:
-          name: "Publish '8.0'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
-          path: ./php8.0
+          context: [docker-hub-creds]
+          name: "Publish '8.2'"
+          path: ./php8.2
           image: thebiggive/php
-          tag: '8.0'
+          tag: '8.2'
       - docker/publish:
-          name: "Publish 'dev-8.1'"
-          context:
-            - docker-hub-creds
-          docker-password: DOCKER_HUB_ACCESS_TOKEN
-          docker-username: DOCKER_HUB_USERNAME
-          path: ./dev
+          context: [docker-hub-creds]
+          name: "Publish '8.3'"
+          path: ./php8.3
           image: thebiggive/php
-          tag: 'dev-8.1'
+          tag: '8.3'
+#      - docker/publish:
+#          context: [docker-hub-creds]
+#          name: "Publish 'dev-8.2'"
+#          path: ./php8.2/dev
+#          image: thebiggive/php
+#          tag: 'dev-8.2'
+#      - docker/publish:
+#          context: [docker-hub-creds]
+#          name: "Publish 'dev-8.3'"
+#          path: ./php8.3/dev
+#          image: thebiggive/php
+#          tag: 'dev-8.3'
     triggers:
       - schedule:
           cron: "5 5 * * *"
