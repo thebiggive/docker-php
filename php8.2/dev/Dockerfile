@@ -1,4 +1,4 @@
-FROM thebiggive/php:8.1
+FROM thebiggive/php:8.2
 
 # CircleCI orb requires gpg for uploader validation
 RUN apt-get update \
