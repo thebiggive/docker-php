@@ -43,10 +43,10 @@ workflows:
 #          path: ./php8.3/dev
 #          image: thebiggive/php
 #          tag: 'dev-8.3'
-    triggers:
-      - schedule:
-          cron: "5 5 * * *"
-          filters:
-            branches:
-              only:
-                - main
+#    triggers:
+#      - schedule:
+#          cron: "5 5 * * *"
+#          filters:
+#            branches:
+#              only:
+#                - main
