@@ -9,6 +9,7 @@ RUN docker-php-ext-enable opcache
 
 RUN pecl install redis && rm -rf /tmp/pear && docker-php-ext-enable redis
 
+COPY apache/security.conf /etc/apache2/conf-available/
 COPY apache/slim.conf /etc/apache2/sites-available/
 COPY php/php.ini /usr/local/etc/php/
 
@@ -25,7 +26,7 @@ RUN a2enmod rewrite \
  && a2enmod remoteip \
  && a2dissite 000-default \
  && a2ensite slim \
- && echo ServerName localhost >> /etc/apache2/apache2.conf
+ && a2enconf security
 
 # Docker and multi-OS dev makes it hard to guarantee user matches for files inside app code, and
 # it should typically live only on trusted partitions, so we bypass this security feature for the
