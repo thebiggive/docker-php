@@ -22,7 +22,8 @@ COPY php/php.ini /usr/local/etc/php/
 # https://github.com/composer/composer/issues/11073
 RUN curl -sS https://getcomposer.org/installer | php -- --version=2.4.1 --install-dir=/usr/local/bin --filename=composer
 
-RUN a2enmod rewrite \
+RUN a2enmod headers \
+ && a2enmod rewrite \
  && a2enmod remoteip \
  && a2dissite 000-default \
  && a2ensite slim \
