@@ -10,10 +10,26 @@ workflows:
           context: [docker-hub-creds]
           docker-password: DOCKER_HUB_ACCESS_TOKEN
           docker-username: DOCKER_HUB_USERNAME
-          name: "Publish 'latest', currently 8.3"
-          path: ./php8.3
+          name: "Publish 'latest', currently 8.5"
+          path: ./php8.5
           image: thebiggive/php
           tag: 'latest'
+      - docker/publish:
+          context: [docker-hub-creds]
+          docker-password: DOCKER_HUB_ACCESS_TOKEN
+          docker-username: DOCKER_HUB_USERNAME
+          name: "Publish '8.5'"
+          path: ./php8.5
+          image: thebiggive/php
+          tag: '8.5'
+      - docker/publish:
+          context: [docker-hub-creds]
+          docker-password: DOCKER_HUB_ACCESS_TOKEN
+          docker-username: DOCKER_HUB_USERNAME
+          name: "Publish 'dev-8.5'"
+          path: ./php8.5/dev
+          image: thebiggive/php
+          tag: 'dev-8.5'
       - docker/publish:
           context: [docker-hub-creds]
           docker-password: DOCKER_HUB_ACCESS_TOKEN
