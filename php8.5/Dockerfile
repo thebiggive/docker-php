@@ -6,7 +6,11 @@ RUN apt-get update \
 
 RUN docker-php-ext-install bcmath intl pcntl pdo_mysql zip
 
-RUN pecl install redis && rm -rf /tmp/pear && docker-php-ext-enable redis
+RUN --mount=type=bind,from=ghcr.io/php/pie:bin,source=/pie,target=/usr/local/bin/pie \
+    export DEBIAN_FRONTEND="noninteractive"; \
+    set -eux; \
+    pie install --no-cache \
+        phpredis/phpredis;
 
 COPY apache/security.conf /etc/apache2/conf-available/
 COPY apache/slim.conf /etc/apache2/sites-available/
